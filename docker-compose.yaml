@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   web:
-    image: python:3.10-slim
+    image: python:3.10
     container_name: flask_app
     volumes:
       - .:/app
       - ./instance:/app/instance
     working_dir: /app
-    command: python run.py
+    command: bash -c "pip install -r requirements.txt && python run.py"
     ports:
       - "80:80"
